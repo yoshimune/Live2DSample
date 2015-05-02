@@ -1,0 +1,10 @@
+{
+	"type": "Live2D Model Setting",
+	"name": "nozomi01",
+	"model": "nozomi01.moc",
+	"textures": [
+		"nozomi01.1024/texture_00.png",
+		"nozomi01.1024/texture_01.png",
+		"nozomi01.1024/texture_02.png"
+	]
+}

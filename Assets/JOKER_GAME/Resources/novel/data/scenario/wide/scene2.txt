@@ -1,0 +1,403 @@
+;チュートリアル用スクリプトファイル
+
+;メッセージ表示
+[showmessage]
+
+;共通ライブラリ
+;セーブ・ロードバックログなど基本的な機能を取り込む 
+[call file=wide/system target="*system_setting_buttons"]
+
+;ゲーム作成で便利なマクロ集
+[call file=wide/libs/utils]
+[text_new name=_sp_chara_name layer=ui x="-168" y=-108.5 val="" color="DDFF00" fontsize=16 anchor="MiddleLeft"]
+[text_show name="_sp_chara_name"]
+
+;背景の新規定義
+[bg_new storage="room"]
+
+;背景の表示
+[bg_show]
+
+
+とある学校の教室[p]
+/*
+[live2d_new name="haru" storage="haru"]
+[live2d_show name="haru" ]
+*/
+
+………[p]
+
+
+[live2d_new name="nozomi01" storage="nozomi01" scale=4 y=-9]
+[live2d_show name="nozomi01"]
+[anim name="nozomi01" time=0.5 y=0.5 type="eraseout"]
+[live2d_motion name="nozomi01" storage="talk01.mtn"]
+おはようございまーす。[r]
+[wait time=0.8]
+夢原のぞみです！
+[wait time=1.2]
+[live2d_motion name="nozomi01" storage="idel.mtn" idel="true"]
+[p]
+
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+#のぞみ
+えへへー[r]
+びっくりした？[p]
+
+[live2d_motion name="nozomi01" storage="talk02.mtn"]
+今日は来てくれてありがとう！[l][r]
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+教室なのに私服なのは気にしないでね！
+[p]
+
+*a_first
+[live2d_motion name="nozomi01" storage="talk02.mtn"]
+じゃあ、何の話をしようか？[p]
+
+[select_new text="このゲームってなんなの？" target=*select_a1 ]
+[select_new text="どうやって作ったの？" target=*select_a2 ]
+[select_new text="タイトルに戻る" target=*select_a4 ]
+[select_show sound=click]
+[s]
+
+
+*select_a1
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+それじゃあこのゲームについて説明するぞー！[l][r]
+[live2d_motion name="nozomi01" storage="talk07.mtn"]
+けってーい！[p]
+
+[live2d_motion name="nozomi01" storage="talk04.mtn"]
+このゲームってなんなのかって言われると…[l][r]
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+まぁ、見ての通り私こと夢原のぞみと[r]おしゃべりするゲームだよ♪[p]
+
+
+[live2d_motion name="nozomi01" storage="talk02.mtn"]
+特徴としては、やっぱり…[l]
+[live2d_motion name="nozomi01" storage="talk06.mtn"]
+私がこう、ぐりぐり動くことだね！[p]
+
+[live2d_motion name="nozomi01" storage="talk04.mtn"]
+ちょっと動くだけでも普通のアドベンチャーゲームとは[r]
+違った感じになるでしょ？[p]
+
+
+[live2d_motion name="nozomi01" storage="talk09.mtn"]
+ゆめみたーい♪　こいしたーい♪[r][wait time=0.8]
+ちょーめいっぱーい♪[r][l]
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+なんちゃって[p]
+
+[live2d_motion name="nozomi01" storage="talk06.mtn"]
+この動きは「Live2D」っていうツールで作られてるんだけど、[r]
+こういう動かす楽しさが少しでも伝わればいいな♪[p]
+
+[live2d_motion name="nozomi01" storage="talk05.mtn"]
+あとは特にゲームっぽいことができるわけじゃ[r]
+ないんだけど…[p]
+
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+ちょっとでも私とお話してる気分に[r]
+なってくれたら嬉しいかなぁ♪[p]
+@jump target=*a_first
+
+
+*select_a2
+
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+じゃあこのゲームがどうやって作られたかを[r]
+説明するね！[p]
+
+[bg_mod storage="back"]
+[anim name="nozomi01" time=0.5 x=3]
+
+[image_new storage="Live2D_logo" name="Live2D_logo" x=-3 y=2.5 tag="logo"]
+[image_new storage="joker_logo_1" name="joker_logo_1" x=-3 y=1 scale=1.2 tag="logo"]
+[image_new storage="unity_logo" name="unity_logo" x=-3 y=-0.5 scale=1.5 tag="logo"]
+[image_show tag="logo" time=0.3]
+[live2d_motion name="nozomi01" storage="talk02.mtn"]
+このゲームは[r]
+「Live2D」「ジョーカースクリプト」「Unity」[r]
+というツールを使って作られてるんだって[p]
+
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+どれもフリーで使えるから[r]
+誰でも気軽に作れるんだよ♪[p]
+
+[live2d_motion name="nozomi01" storage="talk04.mtn"]
+全部のツールを詳しく説明すると[r]
+長くなっちゃうから簡単に説明するね[p]
+
+[live2d_motion name="nozomi01" storage="talk10.mtn"]
+べ、別によく知らないから説明できない[r]
+ってわけじゃないよ！[r][l]
+[live2d_motion name="nozomi01" storage="talk11.mtn"]
+ほんとだよ！[p]
+
+[image_hide name="joker_logo_1" time=0.3 wait=false]
+[image_hide name="unity_logo" time=0.3 wait=false]
+
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+じゃあまず「Live2D」について[r]
+説明するね[p]
+
+[live2d_motion name="nozomi01" storage="talk02.mtn"]
+Live2Dっていうのは簡単に言っちゃうと、[r][l]
+[live2d_motion name="nozomi01" storage="talk06.mtn"]
+こうやってイラストをアニメーションさせるための[r]
+ツールだよ[p]
+
+[live2d_motion name="nozomi01" storage="talk04.mtn"]
+私の表情や口の動き、体の向きの変化なんかは[r]
+みんなイラストを元にLive2Dで作られているんだよ[p]
+
+[image_hide name="Live2D_logo" time=0.3 wait=false]
+[image_show name="joker_logo_1" time=0.3 wait=false]
+
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+次に「ジョーカースクリプト」について[r]
+説明するね[p]
+
+[live2d_motion name="nozomi01" storage="talk04.mtn"]
+ジョーカースクリプトは[r]
+「アドベンチャーゲームを作るためのツール」[r]
+ってとこかな？[p]
+
+[live2d_motion name="nozomi01" storage="talk02.mtn"]
+今まさに私のセリフがウィンドウに表示されてるよね？[r][l]
+[live2d_motion name="nozomi01" storage="talk04.mtn"]
+これはジョーカースクリプトを使って表示させているんだって[p]
+
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+勿論、「スキップ」「オート」「既読ログ」[r]
+「セーブ」「ロード」なんかの基本機能も揃ってるよ♪[r][l]
+
+[live2d_motion name="nozomi01" storage="talk05.mtn"]
+このゲームでは必要ないから使ってないんだけど…[p]
+
+[image_hide name="joker_logo_1" time=0.3 wait=false]
+[image_show name="unity_logo" time=0.3 wait=false]
+
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+じゃあ最後に「Unity」について！[p]
+
+
+[live2d_motion name="nozomi01" storage="talk02.mtn"]
+Unityは一言で言っちゃうと「大抵のゲームなら[r]
+なんでも作れちゃうツール」かな？[p]
+
+[live2d_motion name="nozomi01" storage="talk04.mtn"]
+「Live2Dで作ったアニメーション」や[r]
+「ジョーカースクリプトで作ったシナリオ」を[r]
+「ゲームとして構築する」のがUnityの役割なの[p]
+
+[live2d_motion name="nozomi01" storage="talk05.mtn"]
+…まぁ本当に正確に言うとちょっと違うんだけど…[r]
+[live2d_motion name="nozomi01" storage="talk07.mtn"]
+細かいことは気にしない！気にしない！[p]
+
+[image_show tag="logo" time=0.3]
+
+[live2d_motion name="nozomi01" storage="talk02.mtn"]
+とにかく、[r]
+「Live2D」「ジョーカースクリプト」「Unity」[r]
+を使えばこんなゲームが作れちゃうんだよ♪[p]
+
+[image_hide tag=logo time=0.3]
+[anim name="nozomi01" time=0.5 x=0]
+[bg_mod storage="room"]
+
+[live2d_motion name="nozomi01" storage="talk07.mtn"]
+わかったかな？[p]
+
+[select_new text="わかった！" target=*select_b1]
+[select_new text="よくわかんない…" target=*select_b2]
+[select_new text="のぞみがちゃんと説明するなんて…おかしい！" target=*select_b3]
+[select_show sound=click]
+[s]
+
+*select_b1
+[live2d_motion name="nozomi01" storage="talk07.mtn"]
+ほんと？[r][l]
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+よかったー[p]
+@jump target=*a_first
+
+*select_b2
+[live2d_motion name="nozomi01" storage="talk12.mtn"]
+うぅ…[r]
+上手く説明できなくてごめんね…[p]
+
+[live2d_motion name="nozomi01" storage="talk02.mtn"]
+わからないことはインターネットで検索して[r]
+調べたりしてみてね[r][l]
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+私ももっと勉強しておくから！[p]
+@jump target=*a_first
+
+*select_b3
+[live2d_motion name="nozomi01" storage="talk10.mtn"]
+えぇ〜！？[r]
+いいじゃない別にぃ〜！[r][l]
+[live2d_motion name="nozomi01" storage="talk11.mtn"]
+ミルクみたいなこと言わないでよぉ！！[p]
+@jump target=*a_first
+
+
+*select_a3
+プリキュア5診断をやるんだね。[p]
+
+今から5つの質問をするから答えてね[r][l]
+あなたをプリキュア5で例えると[r]
+誰になるかがわかるよ！[p]
+
+*a_diagnose1
+それじゃあまず第一問！[r][l]
+運動は得意？それとも勉強のほうが得意？[p]
+
+[select_new text="運動ならまかせて！" target=*diagnose_1_1 ]
+[select_new text="勉強のほうが得意かな" target=*diagnose_1_2 ]
+[select_new text="運動も勉強もダメダメ…" target=*diagnose_1_3 ]
+[select_show sound=click]
+[s]
+
+*diagnose_1_1
+[calc exp="f.ans1=2"]
+@jump target=*a_diagnose2
+*diagnose_1_2
+[calc exp="f.ans1=3"]
+@jump target=*a_diagnose2
+*diagnose_1_3
+[calc exp="f.ans1=1"]
+@jump target=*a_diagnose2
+
+*a_diagnose2
+じゃあ第二問！[r][l]
+おやつといえば？[p]
+
+[select_new text="セレブ堂のケーキかしら？" target=*diagnose_2_1 ]
+[select_new text="水ようかんがいいわね♪" target=*diagnose_2_2 ]
+[select_new text="大盛のカレーです！" target=*diagnose_2_3 ]
+[select_show sound=click]
+[s]
+
+*diagnose_2_1
+[calc exp="f.ans2=3"]
+@jump target=*a_diagnose3
+*diagnose_2_2
+[calc exp="f.ans2=2"]
+@jump target=*a_diagnose3
+*diagnose_2_3
+[calc exp="f.ans2=1"]
+@jump target=*a_diagnose3
+
+*a_diagnose3
+それでは第三問！[r][l]
+あなたのポジションは？[p]
+
+[select_new text="みんなを引っ張るリーダー！" target=*diagnose_3_1 ]
+[select_new text="冷静なツッコミを入れるまとめ役！" target=*diagnose_3_2 ]
+[select_new text="いるだけで和む癒し系！" target=*diagnose_3_3 ]
+[select_show sound=click]
+[s]
+
+*diagnose_3_1
+[calc exp="f.ans3=1"]
+@jump target=*a_diagnose4
+*diagnose_3_2
+[calc exp="f.ans3=3"]
+@jump target=*a_diagnose4
+*diagnose_3_3
+[calc exp="f.ans3=2"]
+@jump target=*a_diagnose4
+
+*a_diagnose4
+続いて第四問！[r][l]
+あなたの性格は？[p]
+
+[select_new text="いつでもポジティブ前向き！" target=*diagnose_4_1 ]
+[select_new text="落ち着きがあって真面目" target=*diagnose_4_2 ]
+[select_new text="結構心配性かも…" target=*diagnose_4_3 ]
+[select_show sound=click]
+[s]
+
+*diagnose_4_1
+[calc exp="f.ans4=1"]
+@jump target=*a_diagnose5
+*diagnose_4_2
+[calc exp="f.ans4=2"]
+@jump target=*a_diagnose5
+*diagnose_4_3
+[calc exp="f.ans4=3"]
+@jump target=*a_diagnose5
+
+*a_diagnose5
+これが最後、第五問！[r][l]
+休日の過ごし方は？[p]
+
+[select_new text="みんなでわいわい！" target=*diagnose_5_1 ]
+[select_new text="静かに読書" target=*diagnose_5_2 ]
+[select_new text="ずっと寝てます" target=*diagnose_5_3 ]
+[select_show sound=click]
+[s]
+
+*diagnose_5_1
+[calc exp="f.ans5=1"]
+@jump target=*a_diagnose_finish
+*diagnose_5_2
+[calc exp="f.ans5=3"]
+@jump target=*a_diagnose_finish
+*diagnose_5_3
+[calc exp="f.ans5=2"]
+@jump target=*a_diagnose_finish
+
+*a_diagnose_finish
+
+[diagnose var="f.result" ans1={f.ans1} ans2={f.ans2} ans3={f.ans3} ans4={f.ans4} ans5={f.ans5}]
+{f.result}[p]
+
+お疲れ様！[r]
+それでは結果を発表します！[r][l]
+あなたをプリキュア5で例えると…[p]
+
+[if exp="nozomi=={f.result}"]
+あなたはキュアドリームタイプでした！[r][l]
+私と一緒だね！[p]
+
+[elsif exp="rin=={f.result}"]
+あなたはキュアルージュタイプでした！[r][l]
+
+[p]
+
+[elsif exp="urara=={f.result}"]
+あなたはキュアレモネードタイプでした！[r][l]
+どう？ハジけてる？[p]
+
+[elsif exp="komachi=={f.result}"]
+あなたはキュアミントタイプでした！[r][l]
+癒し系なんだね♪[p]
+
+[elsif exp="karen=={f.result}"]
+あなたはキュアアクアタイプでした！[r][l]
+好きな飲み物はグレープジュース？[p]
+
+[else]
+あなたは…[r][l]
+よくわかりませんでした…[p]
+[endif]
+
+結果はどうだったかな？[r][l]
+まぁ適当な診断だからそんなに[r]
+気にしないでね[p]
+
+[tweet message="テスト"]
+
+*select_a4
+[live2d_motion name="nozomi01" storage="talk02.mtn"]
+それじゃあタイトルに戻るね[r][l]
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+またねー[p]
+[scene file="title"]
+
+@jump target=*a_first

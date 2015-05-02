@@ -1,0 +1,294 @@
+;チュートリアル用スクリプトファイル
+
+;メッセージ表示
+[showmessage]
+
+;共通ライブラリ
+;セーブ・ロードバックログなど基本的な機能を取り込む 
+[call file=wide/system target="*system_setting_buttons"]
+
+;ゲーム作成で便利なマクロ集
+[call file=wide/libs/utils]
+[text_new name=_sp_chara_name layer=ui x="-168" y=-108.5 val="" color="DDFF00" fontsize=16 anchor="MiddleLeft"]
+[text_show name="_sp_chara_name"]
+
+;背景の新規定義
+[bg_new storage="room"]
+
+;背景の表示
+[bg_show]
+
+
+とある学校の教室[p]
+/*
+[live2d_new name="haru" storage="haru"]
+[live2d_show name="haru" ]
+*/
+
+………[p]
+
+
+[live2d_new name="nozomi01" storage="nozomi01" scale=4 y=-9]
+[live2d_show name="nozomi01"]
+[anim name="nozomi01" time=0.5 y=0.5 type="eraseout"]
+[live2d_motion name="nozomi01" storage="talk01.mtn"]
+おはようございまーす。[r]
+[wait time=0.8]
+夢原のぞみです！
+[wait time=1.2]
+[live2d_motion name="nozomi01" storage="idel.mtn" idel="true"]
+[p]
+
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+#のぞみ
+えへへー[r]
+びっくりした？[p]
+
+*a_common
+[live2d_motion name="nozomi01" storage="talk02.mtn"]
+今日は来てくれてありがとう！[l][r]
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+教室なのに私服なのは気にしないでね！
+[p]
+
+[live2d_motion name="nozomi01" storage="talk04.mtn"]
+でもこのゲームを手にとってくれて本当に嬉しいな♪[l][r]
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+今日は最後まで見ていってね！[p]
+
+
+[live2d_motion name="nozomi01" storage="talk02.mtn"]
+さてさて、[r]
+[wait time=0.5]
+それではこのゲームについてのぞみ先生がじっくりと[r]
+教えてあげるね♪[p]
+
+[live2d_motion name="nozomi01" storage="talk08.mtn"]
+大丈夫！[r]
+[wait time=0.5]
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+昨日ココからちゃーんとゲームについて[r]
+教わったんだから！[l]
+[live2d_motion name="nozomi01" storage="talk04.mtn"]
+予習はバッチリだよ！[p]
+
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+それでは説明するぞー！[l][r]
+[live2d_motion name="nozomi01" storage="talk07.mtn"]
+けってーい！[p]
+
+[live2d_motion name="nozomi01" storage="talk02.mtn"]
+じゃあ、まずはこのゲームを作った目的について説明するね[p]
+
+
+[live2d_motion name="nozomi01" storage="talk04.mtn"]
+このゲームは元々同人イベント用サイネージとして[r]
+作られたんだって。[p]
+
+[live2d_motion name="nozomi01" storage="talk02.mtn"]
+サイネージっていうのは、[r]
+商品の説明や広告を液晶ディスプレイなんかで[r]
+表示する技術のことだよ♪[p]
+
+
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+デジタルで作られてるから、[r]
+広告にアニメーションなんかも盛り込めちゃうんだって！[p]
+
+
+[live2d_motion name="nozomi01" storage="talk06.mtn"]
+今まさにあたしもぐりぐり動いてるよね♪[p]
+
+[live2d_motion name="nozomi01" storage="talk02.mtn"]
+それじゃあ、もっとディスプレイらしく[r]
+何か適当な商品を表示してみるね[l][r]
+
+[anim name="nozomi01" time=1 x=4]
+
+[live2d_motion name="nozomi01" storage="talk08.mtn"]
+プリキュア！[wait time=0.2] 
+
+[live2d_motion name="nozomi01" storage="talk07.mtn"]
+メタモルフォーゼ！[p]
+[bg_mod storage="back"]
+[image_new storage="newpublish" name="newpublish" x=-3 y=-1.2 scale=0.6 tag="samples"]
+[image_new storage="samplecover" name="samplecover" x=-1 y=1.5 scale=0.5 tag="samples"]
+[image_new storage="samplecover02" name="samplecover02" x=-5 y=1.5 scale=0.5 tag="samples"]
+[image_show tag="samples" time=0.3]
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+表示されたね♪[p]
+
+[image_hide tag="samples" time=0.3]
+[image_remove tag="samples"]
+[image_new storage="kan" name="kan" x=-3 y=-1.2 scale=0.8 tag="kans"]
+[image_new storage="kanlist02" name="kanlist02" x=-3 y=1.5 scale=1 tag="kans"]
+[image_show tag="kans" time=0.1]
+
+[live2d_motion name="nozomi01" storage="talk02.mtn"]
+画像を切り替えてみたり…[p]
+
+
+[image_new storage="autologo" name="autologo" sort=10]
+[image_show name="autologo" time=0.3]
+
+[live2d_motion name="nozomi01" storage="talk04.mtn"]
+自動で画像を切り替えたり…
+[anim name="kanlist02" time=1 y=10.5 type="easeInOutQuad" wait=false]
+[anim name="kan" time=1 y=10.5 type="easeInOutQuad"]
+[image_remove tag="kans"]
+
+
+[image_new storage="erika" name="erika" x=-4 y=-10 scale=0.6 tag="erika"]
+[image_show tag="erika" time=0]
+[anim name="erika" time=1 y=1.5 type="easeInOutQuad"]
+[anim name="erika" time=2 y=1.5 type="easeInOutQuad"]
+[cm]
+
+[live2d_motion name="nozomi01" storage="talk07.mtn"]
+えいっ！
+[anim name="erika" time=0.7 y=10.5 type="easeInOutQuad" wait=false]
+[image_new storage="melody" name="melody" x=-4 y=-10 scale=0.6 tag="melody"]
+[image_show tag="melody" time=0]
+[anim name="melody" time=0.7 y=1.5 type="easeInOutQuad"]
+[anim name="melody" time=2 y=1.5 type="easeInOutQuad"]
+[image_remove name="erika"]
+[cm]
+
+[live2d_motion name="nozomi01" storage="talk07.mtn"]
+やぁっ！
+[anim name="melody" time=0.7 y=10.5 type="easeInOutQuad" wait=false]
+[image_new storage="aqua" name="aqua" x=-4 y=-10 scale=0.6 tag="aqua"]
+[image_show tag="aqua" time=0]
+[anim name="aqua" time=0.7 y=1.5 type="easeInOutQuad"]
+[anim name="aqua" time=2 y=1.5 type="easeInOutQuad"]
+[image_remove name="melody"]
+[cm]
+
+[live2d_motion name="nozomi01" storage="talk07.mtn"]
+とぉっ！
+[anim name="aqua" time=0.7 y=10.5 type="easeInOutQuad" wait=false]
+[image_new storage="sophie" name="sophie" x=-4 y=-10 scale=0.6 tag="sophie"]
+[image_show tag="sophie" time=0]
+[anim name="sophie" time=0.7 y=1.5 type="easeInOutQuad"]
+[anim name="sophie" time=2 y=1.5 type="easeInOutQuad"]
+[image_remove name="aqua"]
+[cm]
+
+[live2d_motion name="nozomi01" storage="talk07.mtn"]
+そい！
+[anim name="sophie" time=0.7 y=10.5 type="easeInOutQuad" wait=false]
+[image_new storage="dio" name="dio" x=-4 y=-10 scale=0.6 tag="dio"]
+[image_show tag="dio" time=0]
+[anim name="dio" time=0.5 y=1.5 type="easeInOutQuad"]
+[anim name="dio" time=1 y=1.5 type="easeInOutQuad"]
+[image_remove name="sophie"]
+[r]
+
+[live2d_motion name="nozomi01" storage="talk07.mtn"]
+そい！
+[anim name="dio" time=0.7 y=10.5 type="easeInOutQuad" wait=false]
+[image_new storage="muda" name="muda" x=-4 y=-10 scale=0.6 tag="muda"]
+[image_show tag="muda" time=0]
+[anim name="muda" time=0.5 y=1.5 type="easeInOutQuad"]
+[anim name="muda" time=1 y=1.5 type="easeInOutQuad"]
+[image_remove name="dio"]
+[r]
+
+[live2d_motion name="nozomi01" storage="talk07.mtn"]
+そぉい！！
+[anim name="muda" time=0.7 y=10.5 type="easeInOutQuad" wait=false]
+[image_new storage="oni" name="oni" x=-4 y=-10 scale=0.6 tag="oni"]
+[image_show tag="oni" time=0]
+[anim name="oni" time=0.5 y=1.5 type="easeInOutQuad"]
+[anim name="oni" time=1 y=1.5 type="easeInOutQuad"]
+[image_remove name="muda"]
+[cm]
+
+[image_hide name="autologo" time=0.3]
+[image_remove name="autologo"]
+[live2d_motion name="nozomi01" storage="talk02.mtn"]
+…とまあ、こんな感じのディスプレイが[r]
+作れるんだよ♪[p]
+
+[image_hide name="oni" time=0.3]
+[image_remove name="oni"]
+[anim name="nozomi01" time=1 x=0]
+[bg_mod storage="room"]
+
+
+[live2d_motion name="nozomi01" storage="talk05.mtn"]
+ほんとは他にもいろいろ出来るんだけど…[r]
+時間がなくて断念したみたい…[r]
+ごめんね…[p]
+
+
+[live2d_motion name="nozomi01" storage="talk04.mtn"]
+あとは、サイネージだけじゃなくて、[r]
+普通のアドベンチャーゲームも作れるんだよ！[p]
+
+
+[live2d_motion name="nozomi01" storage="talk02.mtn"]
+ちょっとアドベンチャーゲームっぽいことしてみようか？[p]
+
+[select_new text="してみる" target=*select_a1 ]
+[select_new text="やめとく" target=*select_a2 ]
+[select_show sound=click ]
+[s]
+
+*select_a1
+;do nothig
+*select_a2
+;do nothing
+
+
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+どう？[wait time=0.5][r]
+いまのちょっとアドベンチャーゲームっぽくなかった？[p]
+
+[live2d_motion name="nozomi01" storage="talk02.mtn"]
+こんな感じでゲームも作れるので、[r]
+今後ゲームも作っていきたいなあ…[l][r]
+
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+って中の人は思ってるみたいだよ[p]
+
+
+[live2d_motion name="nozomi01" storage="talk04.mtn"]
+説明はだいたいこんなところかな？[l][r]
+
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+えへへ、ちゃんと説明出来てたかな？[p]
+
+
+[live2d_motion name="nozomi01" storage="talk02.mtn"]
+というわけでデモはここで終わりなので、[r]
+タイトルに戻るね。[p]
+
+[live2d_motion name="nozomi01" storage="idel.mtn"]
+
+[live2d_motion name="nozomi01" storage="talk04.mtn"]
+タイトルに戻る？[p]
+
+[select_new text="タイトルに戻る" target=*select_b1 ]
+[select_new text="もう一回説明聞きたい" target=*select_b2 ]
+[select_show sound=click ]
+[s]
+
+*select_b1
+@jump target=*b_common
+
+*select_b2
+
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+じゃあもう一回説明するね[p]
+@jump target=*a_common
+
+*b_common 
+
+[live2d_motion name="nozomi01" storage="talk03.mtn"]
+じゃあ戻りまーす[p]
+[scene file="Player"]
+
+/*
+[live2d_motion name="haru" storage="haru_m_02.mtn"]
+*/
